@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --red: #DB4444;
+  --bg: #F5F5F5;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: 20px;
+  @media (min-width: 768px) {
+    padding-inline: 30px;
+  }
+}
+
+.carousel-track {
+  will-change: transform;
+}
+
+.fav,
+.view {
+  position: absolute;
+  aspect-ratio: 1;
+  background-color: white;
+  width: 20px;
+  @media (min-width: 640px) {
+    width: 30px;
+  }
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 70%;
+  }
+
+  --space: 16px;
+  @media (max-width: 640px) {
+    --space: 10px;
+  }
+}
+
+.fav {
+  top: var(--space);
+  right: var(--space);
+}
+.view {
+  top: calc(var(--space) + 20px + 4px);
+  @media (min-width: 640px) {
+  top: calc(var(--space) + 30px + 8px);
+  }
+  right: var(--space);
+}

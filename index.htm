@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="CSS/all.min.css">
+  <link rel="stylesheet" href="CSS/main.css">
+  <title>Exclusive</title>
+</head>
+<body>
+
+  <!-- some sections will be added by JS as components -->
+  <!-- see the components in components folder -->
+  <div id="message"></div>
+  <header id="header"></header>
+
+
+  <section class="container flex">
+    <nav class="pt-8 pr-12 border-r border-[rgba(0,_0,_0,_.3)] max-[640px]:hidden text-sm flex flex-col gap-4 min-w-[22%]" >
+      <span class="group flex items-center justify-between w-full gap-2 cursor-pointer"><a href="#" class="group-hover:underline">Woman’s Fashion</a><i class="fa-solid fa-angle-right"></i></span>
+      <span class="group flex items-center justify-between w-full gap-2 cursor-pointer"><a href="#" class="group-hover:underline">Men’s Fashion</a><i class="fa-solid fa-angle-right"></i></span>
+      <a href="#" class="hover:underline">Electronics</a>
+      <a href="#" class="hover:underline">Home & Lifestyle</a>
+      <a href="#" class="hover:underline">Medicine</a>
+      <a href="#" class="hover:underline">Sports & Outdoor</a>
+      <a href="#" class="hover:underline">Baby’s & Toys</a>
+      <a href="#" class="hover:underline">Health & Beauty</a>
+    </nav>
+
+    <div class="carousel overflow-hidden relative mt-8 ml-10 max-[640px]:m-5 flex-1">
+      <div class="carousel-track flex transition-transform duration-300 min-h-52 h-full w-[200%]">
+
+        <div class=" flex-shrink-0 h-full flex items-center justify-between py-14 px-16 bg-black gap-4 max-[992px]:px-10 max-[768px]:flex-col-reverse max-[768px]:text-center w-[50%]
+        max-[768px]:justify-center">
+          <div class="text-white">
+            <div class="flex items-center gap-4 max-[768px]:justify-center">
+              <i class="fa-brands fa-apple text-4xl"></i>
+              <p class="">iPhone 14 Series</p>
+            </div>
+            <p class="my-5 text-4xl leading-snug max-[992px]:text-3xl max-[768px]:text-xl">
+              Up to 10% off Voucher
+            </p>
+            <a href="./all-products.htm" class="
+            after:content-[''] after:absolute relative after:w-full 
+            after:h-0.5 after:bg-white rounded after:left-0 after:bottom-0 pb-2 group">
+              <span class="mr-1 group-hover:mr-4 transition-all">Shop Now</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+          <img src="./assets/images/iphone.png" class="sm:max-[50%]! w-[50%] max-[1200px]:w-[300px] max-[768px]:w-[240px]" alt="">
+        </div>
+
+        <div class=" flex-shrink-0 h-full flex items-center justify-between py-14 px-16 bg-[#f4f4f4] gap-4 max-[992px]:px-10 max-[768px]:flex-col-reverse max-[768px]:text-center w-[50%]">
+          <div class="text-slate-800">
+            <div class="flex items-center gap-4 max-[768px]:justify-center">
+              <p class="">Samsung Galaxy S24 Ultra</p>
+            </div>
+            <p class="my-5 text-4xl leading-snug max-[992px]:text-3xl max-[768px]:text-xl font-semibold">
+              Capture the Future – Up to 25% Off
+            </p>
+            <a href="./all-products.htm" class="
+            after:content-[''] after:absolute relative after:w-full 
+            after:h-0.5 after:bg-slate-800 rounded after:left-0 after:bottom-0 pb-2 group">
+              <span class="mr-1 group-hover:mr-4 transition-all">Shop Now</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+          <img src="./assets/images/samsung.png" class="sm:max-[50%]! w-[50%] h-[290px] object-contain block max-[1200px]:w-[300px] max-[768px]:w-[240px] max-[768px]:h-44" alt="">
+        </div>
+
+        <div class=" flex-shrink-0 h-full flex items-center justify-between py-14 px-16 bg-white gap-4 max-[992px]:px-10 max-[768px]:flex-col-reverse max-[768px]:text-center w-[50%]
+        max-[768px]:justify-center">
+          <div class="text-stone-900">
+            <div class="flex items-center gap-4 max-[768px]:justify-center">
+              <p class="">Sony WH-1000XM5 Headphones</p>
+            </div>
+            <p class="my-5 text-4xl leading-snug max-[992px]:text-3xl max-[768px]:text-xl">
+              Pure Sound. Zero Distractions – $50 Off
+            </p>
+            <a href="./all-products.htm" class="
+            after:content-[''] after:absolute relative after:w-full 
+            after:h-0.5 after:bg-stone-900 rounded after:left-0 after:bottom-0 pb-2 group">
+              <span class="mr-1 group-hover:mr-4 transition-all">Shop Now</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+          <img src="./assets/images/headphones.png" class="sm:max-[50%]! w-[50%] h-[290px] object-contain block max-[1200px]:w-[300px] max-[768px]:w-[240px] max-[768px]:h-44" alt="">
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Today's sales -->
+  <section class="container px-5 md:p-0 mt-12 mb-10">
+    <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+      <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+      <p class="text-(--red) font-semibold text-[12px] md:text-sm">Today’s</p>
+    </div>
+    <div class="my-4 md:my-5 flex items-center justify-between">
+      <h2 class="font-semibold text-lg md:text-2xl">Flash Sales</h2>
+      <div id="counter" class="flex items-center">
+        <div id="days" class="flex flex-col items-center">
+          <span class="text-[8px] md:text-[10px] leading-none">Days</span>
+          <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
+        </div>
+        <p class="flex items-center justify-between mx-2 md:mx-2.5 h-3 md:h-3.5 flex-col">
+          <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
+          <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
+        </p>
+        <div id="hours" class="flex flex-col items-center">
+          <span class="text-[8px] md:text-[10px] leading-none">Hours</span>
+          <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
+        </div>
+        <p class="flex items-center justify-between mx-2 md:mx-2.5 h-3 md:h-3.5 flex-col">
+          <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
+          <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
+        </p>
+        <div id="minutes" class="flex flex-col items-center">
+          <span class="text-[8px] md:text-[10px] leading-none">Minutes</span>
+          <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
+        </div>
+        <p class="flex items-center justify-between mx-2 md:mx-2.5 h-3 md:h-3.5 flex-col">
+          <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
+          <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
+        </p>
+        <div id="seconds" class="flex flex-col items-center">
+          <span class="text-[8px] md:text-[10px] leading-none">Seconds</span>
+          <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
+        </div>
+      </div>
+    </div>
+    <div id="flash-sales" class="grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4"></div>
+    <a href="./all-products.htm" class="bg-(--red) block text-center rounded-sm text-white font-light my-5 md:my-8 md:hover:opacity-60 
+    w-32 md:w-44 mx-auto text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300">View All Products</a>
+  </section>
+
+  <script type="module" src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/homepage.js"></script>
+</body>
+</html>

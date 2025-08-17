@@ -1,0 +1,23 @@
+[
+  {
+    "logo": "<i class=\"fa-brands fa-apple\"></i>",
+    "product": "iPhone 14 Series",
+    "content": "Up to 10% off Voucher",
+    "cta": "Shop Now",
+    "image": "iphone.png"
+  },
+  {
+    "product": "Samsung Galaxy S24 Ultra",
+    "content": "Capture the Future – Up to 25% Off",
+    "subtext": "Upgrade now with stunning 200MP clarity",
+    "cta": "Shop Now",
+    "image": "samsung.png"
+  },
+  {
+    "product": "Sony WH-1000XM5 Headphones",
+    "content": "Pure Sound. Zero Distractions – $50 Off",
+    "subtext": "Immerse yourself in industry-leading noise cancellation",
+    "cta": "Grab Yours",
+    "image": "headphones.png"
+  }
+]
