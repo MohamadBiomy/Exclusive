@@ -101,7 +101,7 @@
   </section>
 
   <!-- Today's sales -->
-  <section class="container px-5 md:p-0 mt-12 mb-10">
+  <section class="container px-5 md:p-0 mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Today’s</p>
@@ -140,11 +140,49 @@
       </div>
     </div>
     <div id="flash-sales" class="grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4"></div>
-    <a href="./all-products.htm" class="bg-(--red) block text-center rounded-sm text-white font-light my-5 md:my-8 md:hover:opacity-60 
+    <a href="./all-products.htm" class="bg-(--red) block text-center rounded-sm text-white font-light mt-5 md:mt-10 md:hover:opacity-60 
     w-32 md:w-44 mx-auto text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300">View All Products</a>
   </section>
 
-  <script type="module" src="./assets/js/main.js"></script>
-  <script type="module" src="./assets/js/homepage.js"></script>
+  <!-- Categories -->
+  <section class="container px-5 md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+    <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+      <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+      <p class="text-(--red) font-semibold text-[12px] md:text-sm">Categories</p>
+    </div>
+    <div class="my-4 mb-6 md:my-5 md:mb-10 flex items-center justify-between">
+      <h2 class="font-semibold text-lg md:text-2xl">Browse By Category</h2>
+    </div>
+    <div id="categories" class="grid gap-2 md:gap-4 grid-cols-3 sm:grid-cols-6 justify-between text-[12px]">
+      <div class="flex items-center px-4 text-center gap-1 md:gap-2 border border-gray-300 py-4 md:py-6 rounded flex-col transition-all duration-300 cursor-pointer md:hover:border-transparent md:hover:bg-(--red) md:hover:text-white group">
+        <img src="./assets/icons/Category-CellPhone.svg" alt="icon" class="w-12 md:group-hover:invert md:group-hover:brightness-0 transition-all duration-300">
+        <p>Phones</p>
+      </div>
+      <div class="flex items-center px-4 text-center gap-1 md:gap-2 border border-gray-300 py-4 md:py-6 rounded flex-col transition-all duration-300 cursor-pointer md:hover:border-transparent md:hover:bg-(--red) md:hover:text-white group">
+        <img src="./assets/icons/Category-Computer.svg" alt="icon" class="w-12 md:group-hover:invert md:group-hover:brightness-0 transition-all duration-300">
+        <p>Computers</p>
+      </div>
+      <div class="flex items-center px-4 text-center gap-1 md:gap-2 border border-gray-300 py-4 md:py-6 rounded flex-col transition-all duration-300 cursor-pointer md:hover:border-transparent md:hover:bg-(--red) md:hover:text-white group">
+        <img src="./assets/icons/Category-SmartWatch.svg" alt="icon" class="w-12 md:group-hover:invert md:group-hover:brightness-0 transition-all duration-300">
+        <p>Smart Watch</p>
+      </div>
+      <div class="flex items-center px-4 text-center gap-1 md:gap-2 border active border-gray-300 py-4 md:py-6 rounded flex-col transition-all duration-300 cursor-pointer md:hover:border-transparent md:hover:bg-(--red) md:hover:text-white group">
+        <img src="./assets/icons/Category-Camera.svg" alt="icon" class="w-12 md:group-hover:invert md:group-hover:brightness-0 transition-all duration-300">
+        <p>Camera</p>
+      </div>
+      <div class="flex items-center px-4 text-center gap-1 md:gap-2 border border-gray-300 py-4 md:py-6 rounded flex-col transition-all duration-300 cursor-pointer md:hover:border-transparent md:hover:bg-(--red) md:hover:text-white group">
+        <img src="./assets/icons/Category-Headphone.svg" alt="icon" class="w-12 md:group-hover:invert md:group-hover:brightness-0 transition-all duration-300">
+        <p>Head Phones</p>
+      </div>
+      <div class="flex items-center px-4 text-center gap-1 md:gap-2 border border-gray-300 py-4 md:py-6 rounded flex-col transition-all duration-300 cursor-pointer md:hover:border-transparent md:hover:bg-(--red) md:hover:text-white group">
+        <img src="./assets/icons/Category-Gamepad.svg" alt="icon" class="w-12 md:group-hover:invert md:group-hover:brightness-0 transition-all duration-300">
+        <p>Gaming</p>
+      </div>
+    </div>
+  </section>
+
+
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/homepage.js"></script>
 </body>
 </html>

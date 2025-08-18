@@ -1,0 +1,104 @@
+// Variables
+
+// Initialize components first
+async function initializeApp() {
+  const message = document.getElementById("message")
+  const header = document.getElementById("header")
+  const flashSalesContainer = document.getElementById("flash-sales")
+
+
+  
+  // Wait for all components to load
+  await Promise.all([
+    appendComponent(message),
+    appendComponent(header),
+  ])
+  
+  // Now initialize DOM elements after components are loaded
+  initializeEventListeners()
+}
+
+// Initialize event listeners after components are ready
+function initializeEventListeners() {
+  const menu = document.getElementById("menu")
+  const burgerIcon = document.getElementById("menu").previousElementSibling
+
+  // mobile menu
+  burgerIcon.addEventListener("click", () => {
+    burgerIcon.classList.toggle("active")
+    if (burgerIcon.classList.contains("active")) {
+      burgerIcon.src = "./assets/icons/x.svg"
+    } else burgerIcon.src = "./assets/icons/menu.svg"
+  })
+  
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      burgerIcon.classList.remove("active")
+    }
+  })
+}
+
+// Start the application
+initializeApp()
+
+
+
+
+
+
+
+
+
+// FUNCTIONS
+
+async function appendComponent(componentContainer) {
+
+  const component = await getComponent(componentContainer.id)
+
+  componentContainer.innerHTML = component
+
+}
+async function getComponent(componentName) {
+  const res = await fetch(`./components/${componentName}.htm`)
+  const data = await res.text()
+  return data
+}
+
+
+function createProduct(prodObj) {
+  const template = `
+  <div data-product='${prodObj.data}' >
+    <div class="relative rounded-sm bg-(--bg) flex items-center justify-center aspect-square lg:aspect-[unset] lg:h-[230px]">
+      <img src="${prodObj.img}" class="w-[70%] max-h-[80%] object-contain" alt="">
+      <div class="fav"><img src="./assets/icons/heart.svg" alt=""></div>
+      <div class="view"><img src="./assets/icons/eye.svg" alt=""></div>
+    </div>
+    <p class="text-[12px] md:text-[16px] uppercase my-2 md:my-2.5">${prodObj.title}</p>
+    <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="text-(--red)" >${prodObj.price}</span> <span class="text-gray-600 line-through">${prodObj.oldPrice}</span></p>
+    <div class="flex items-center gap-2">
+      <p class="flex items-center gap-0.5 md:gap-1">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
+      </p>
+      <span class="text-[8px] md:text-[10px] text-gray-600">(${prodObj.reviews})</span>
+    </div>
+  </div>`
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = template.trim()
+  return wrapper.firstElementChild
+}
+
+
+function toggleClass(elements, className = "active") {
+  elements.forEach(element => {
+    element.addEventListener("click", () => {
+      elements.forEach(ele => ele.classList.remove(className))
+      element.classList.add(className)
+    })
+  });
+}
+
+export { createProduct, toggleClass }
