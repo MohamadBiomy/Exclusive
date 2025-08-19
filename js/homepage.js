@@ -305,7 +305,6 @@ if (counters) {
   })
 } 
 
-
 // Categories
 const categories = document.querySelectorAll("#categories > div")
 toggleClass(categories)

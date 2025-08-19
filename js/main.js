@@ -5,14 +5,14 @@ let favIconPage, cartIconPage;
 async function initializeApp() {
   const message = document.getElementById("message")
   const header = document.getElementById("header")
-  const flashSalesContainer = document.getElementById("flash-sales")
-
+  const footer = document.getElementById("footer")
 
   
   // Wait for all components to load
   await Promise.all([
     appendComponent(message),
     appendComponent(header),
+    appendComponent(footer)
   ])
   
   // Now initialize DOM elements after components are loaded
@@ -46,8 +46,24 @@ function initializeEventListeners() {
 initializeApp()
 
 
+// Move to top button
+const moveTop = document.getElementById("move-to-top")
+if (moveTop) {
+  const toggleMoveTopVisibility = () => {
+    if (document.documentElement.scrollTop < 1000) {
+      moveTop.style.display = "none"
+    } else {
+      moveTop.style.display = ""
+    }
+  }
 
+  toggleMoveTopVisibility()
+  window.addEventListener("scroll", toggleMoveTopVisibility)
 
+  moveTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
+}
 
 
 

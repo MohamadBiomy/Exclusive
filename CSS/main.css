@@ -72,3 +72,20 @@ body {
     filter: brightness(0) invert(100%);
   }
 }
+
+#move-to-top {
+  animation: appear-from-bottom .3s forwards;
+}
+
+
+
+@keyframes appear-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

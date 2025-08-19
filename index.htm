@@ -101,7 +101,7 @@
   </section>
 
   <!-- Today's sales -->
-  <section class="container md:p-0 mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+  <section class="container mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Today’s</p>
@@ -145,7 +145,7 @@
   </section>
 
   <!-- Categories -->
-  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+  <section id="categories" class="container mt-8 md:mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Categories</p>
@@ -182,7 +182,7 @@
   </section>
 
   <!-- Best Selling -->
-  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10">
+  <section class="container mt-8 md:mt-12 mb-10 pb-5 md:pb-10">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">This Month</p>
@@ -196,7 +196,7 @@
   </section>
 
   <!-- Poster -->
-  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10">
+  <section class="container mt-8 md:mt-12 mb-10 pb-5 md:pb-10">
     <div class="
     bg-black flex flex-col items-center py-8 text-center gap-10
     sm:text-start sm:flex-row sm:py-8 sm:px-8 md:p-10 lg:p-12 lg:px-14
@@ -233,7 +233,7 @@
   </section>
 
   <!-- Our Products -->
-  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+  <section class="container mt-8 md:mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Our Products</p>
@@ -247,7 +247,7 @@
   </section>
 
   <!-- Arrivals -->
-  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10">
+  <section class="container mt-8 md:mt-12">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Featured</p>
@@ -294,6 +294,48 @@
     </div>
   </section>
 
+  <!-- Features -->
+  <section class="container my-20 md:my-36">
+    <div class="flex items-center justify-center gap-5 gap-y-12 md:gap-14 md:gap-y-20 flex-wrap">
+      <div class="text-center">
+        <div class="flex items-center justify-center aspect-square rounded-full mx-auto shadow-[0_0_0_11px_#363738] bg-black w-14">
+          <img src="./assets/icons/delivery.png" class="w-[68%]" alt="">
+        </div>
+        <p class="font-semibold text-[18px] md:text-[20px] mt-[35px] mb-2">FREE AND FAST DELIVERY</p> 
+        <p class="text-sm">Free delivery for all orders over $140</p> 
+      </div>
+      <div class="text-center">
+        <div class="flex items-center justify-center aspect-square rounded-full mx-auto shadow-[0_0_0_11px_#363738] bg-black w-14">
+          <img src="./assets/icons/support.png" class="w-[68%]" alt="">
+        </div>
+        <p class="font-semibold text-[18px] md:text-[20px] mt-[35px] mb-2">24/7 CUSTOMER SERVICE</p> 
+        <p class="text-sm">Friendly 24/7 customer support</p> 
+      </div>
+      <div class="text-center">
+        <div class="flex items-center justify-center aspect-square rounded-full mx-auto shadow-[0_0_0_11px_#363738] bg-black w-14">
+          <img src="./assets/icons/safe.png" class="w-[68%]" alt="">
+        </div>
+        <p class="font-semibold text-[18px] md:text-[20px] mt-[35px] mb-2">MONEY BACK GUARANTEE</p> 
+        <p class="text-sm">We reurn money within 30 days</p> 
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer id="footer">
+  </footer>
+
+
+
+  <!-- move to top arrow -->
+  <div id="move-to-top" class="
+  fixed bottom-4 right-4 md:bottom-7 md:right-7 lg:bottom-10 lg:right-10 z-20 bg-[#F5F5F5]
+  aspect-square rounded-full text-black flex items-center justify-center w-8 md:w-10 lg:w-12
+  md:text-[18px] lg:text-[20px] shadow md:hover:scale-110 md:hover:bg-white transition-all duration-300 cursor-pointer
+  ">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
   <script type="module" src="./js/main.js"></script>
   <script type="module" src="./js/homepage.js"></script>
 </body>
