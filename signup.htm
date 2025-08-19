@@ -27,9 +27,13 @@
     <div class="container flex items-center flex-wrap-reverse justify-center md:gap-16 lg:gap-24 pt-14 pb-24 md:pb-36 bg-white">
       <img class="hidden max-w-[57%] md:block" src="./assets/images/login.png" alt="design">
       <div class="text-center md:text-start mx-auto md:mx-0 max-w-[300px] md:max-w-[370px]">
-        <h2 class="font-[Inter] font-semibold text-[24px] md:text-4xl mb-3 md:mb-6">Log in to Exclusive</h2>
+        <h2 class="font-[Inter] font-semibold text-[24px] md:text-4xl mb-3 md:mb-6">Create an account</h2>
         <p class="text-sm md:text-base mb-8 md:mb-12">Enter your details below</p>
         <form class="w-[280px]">
+          <div class="mb-6 md:mb-8">
+            <input type="text" name="name" placeholder="Name" class="block w-full border-b border-gray-300 py-3 px-2">
+            <p class="input-error text-(--red) text-[12px] mt-1 min-h-4"></p>
+          </div>
           <div class="mb-6 md:mb-8">
             <input type="text" name="email" placeholder="Email" class="block w-full border-b border-gray-300 py-3 px-2">
             <p class="input-error text-(--red) text-[12px] mt-1 min-h-4"></p>
@@ -38,11 +42,12 @@
             <input type="password" name="password" placeholder="Password" class="block w-full border-b border-gray-300 py-3 px-2">
             <p class="input-error text-(--red) text-[12px] mt-1 min-h-4"></p>
           </div>
-          <div class="flex items-center justify-between">
-            <button class="bg-(--red) cursor-pointer block text-center rounded-sm text-white font-light md:hover:opacity-60 
-            w-22 md:w-36 text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300">Log In</button>
-            <a href="./signup.htm" class="text-sm text-(--red) underline font-light cursor-pointer">Create Account</a>
-          </div>
+          <button class="bg-(--red) block text-center rounded-sm text-white font-light md:hover:opacity-60 
+          w-full md:w-full cursor-pointer text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300">Create Account</button>
+          <p class="text-center mt-5">
+            <span class="text-[13px] text-gray-400 mr-2 font-light">Already have account?</span>
+            <a href="./login.htm" class="text-[13px] text-gray-600 underline font-light cursor-pointer">Log In</a>
+          </p>
         </form>
       </div>
     </div>
@@ -67,6 +72,7 @@
   <script>
     const form = document.querySelector('form')
     const submit = document.querySelector('button')
+    const nameInput = document.querySelector("[name='name']")
     const email = document.querySelector("[name='email']")
     const password = document.querySelector("[name='password']")
 
@@ -95,12 +101,22 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault()
 
+      clearError(nameInput)
       clearError(email)
       clearError(password)
 
       let isValid = true
+      const nameValue = nameInput.value.trim()
       const emailValue = email.value.trim()
       const passwordValue = password.value
+
+      if (!nameValue) {
+        setError(nameInput, 'Name is required')
+        isValid = false
+      } else if (nameValue.length < 2) {
+        setError(nameInput, 'Name must be at least 2 characters')
+        isValid = false
+      }
 
       if (!emailValue) {
         setError(email, 'Email is required')

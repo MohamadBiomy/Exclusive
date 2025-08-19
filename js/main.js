@@ -66,9 +66,6 @@ if (moveTop) {
 }
 
 
-
-
-
 // FUNCTIONS
 
 async function appendComponent(componentContainer) {
