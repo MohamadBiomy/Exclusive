@@ -85,24 +85,25 @@ async function getComponent(componentName) {
 }
 
 
+
 function createProduct(prodObj) {
 
   const template = `
   <div data-product='${prodObj.data}' >
     <div class="relative rounded-sm bg-(--bg) flex items-center justify-center aspect-square lg:aspect-[unset] lg:h-[230px]">
-      <img src="${prodObj.img}" class="w-[70%] max-h-[80%] object-contain" alt="">
-      <div class="fav"><img src="./assets/icons/heart.svg" alt=""></div>
-      <div class="view"><img src="./assets/icons/eye.svg" alt=""></div>
+      <img src="${prodObj.img}" class="w-[70%] max-h-[80%] object-contain" alt="${prodObj.title}">
+      <div class="fav"><img src="./assets/icons/heart.svg" alt="Add to wishlist"></div>
+      <div class="view"><img src="./assets/icons/eye.svg" alt="View product"></div>
     </div>
     <p class="text-[12px] md:text-[16px] uppercase font-[500] my-2 md:mt-3">${prodObj.title}</p>
     <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="mr-1 text-(--red)" >${prodObj.price}</span> <span class="text-gray-400 line-through">${prodObj.oldPrice}</span></p>
     <div class="flex items-center gap-2">
       <p class="flex items-center gap-0.5 md:gap-1">
-        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
-        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
-        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
-        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
-        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
+        <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
       </p>
       <span class="text-[8px] md:text-[10px] text-gray-400">(${prodObj.reviews})</span>
     </div>
