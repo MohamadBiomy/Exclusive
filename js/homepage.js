@@ -63,9 +63,15 @@ function initializeEventListeners() {
           if (!favs.includes(product)) {
             favs.push(product)
             localStorage.setItem("favorites", JSON.stringify(favs))
+            icon.querySelector("img").src = "./assets/icons/red-heart.png"
+          } else {
+            icon.querySelector("img").src = "./assets/icons/heart.svg"
+            favs.splice(favs.indexOf(product), 1)
+            localStorage.setItem("favorites", JSON.stringify(favs))
           }
         } else {
           let temp = [product]
+          icon.querySelector("img").src = "./assets/icons/red-heart.png"
           localStorage.setItem("favorites", JSON.stringify(temp))
         }
         updateFavPage()

@@ -70,6 +70,7 @@ async function getComponent(componentName) {
 
 
 function createProduct(prodObj) {
+
   const template = `
   <div data-product='${prodObj.data}' >
     <div class="relative rounded-sm bg-(--bg) flex items-center justify-center aspect-square lg:aspect-[unset] lg:h-[230px]">
@@ -90,8 +91,15 @@ function createProduct(prodObj) {
       <span class="text-[8px] md:text-[10px] text-gray-400">(${prodObj.reviews})</span>
     </div>
   </div>`
+
   const wrapper = document.createElement('div')
   wrapper.innerHTML = template.trim()
+  if (localStorage.getItem("favorites")) {
+    let favs = JSON.parse(localStorage.getItem("favorites"))
+    if (favs.includes(prodObj.data)) {
+      wrapper.querySelector(".fav img").src = "./assets/icons/red-heart.png"
+    }
+  }
   return wrapper.firstElementChild
 }
 
