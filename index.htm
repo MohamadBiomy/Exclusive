@@ -22,7 +22,7 @@
   <div id="message"></div>
   <header id="header"></header>
 
-
+  <!-- hero section -->
   <section class="container flex">
     <nav class="pt-8 pr-12 border-r border-[rgba(0,_0,_0,_.3)] max-[640px]:hidden text-sm flex flex-col gap-4 min-w-[22%]" >
       <span class="group flex items-center justify-between w-full gap-2 cursor-pointer"><a href="#" class="group-hover:underline">Woman’s Fashion</a><i class="fa-solid fa-angle-right"></i></span>
@@ -101,15 +101,15 @@
   </section>
 
   <!-- Today's sales -->
-  <section class="container px-5 md:p-0 mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+  <section class="container md:p-0 mt-12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Today’s</p>
     </div>
     <div class="my-4 md:my-5 flex items-center justify-between">
       <h2 class="font-semibold text-lg md:text-2xl">Flash Sales</h2>
-      <div id="counter" class="flex items-center">
-        <div id="days" class="flex flex-col items-center">
+      <div class="counter flex items-center" data-days="3" data-hours="23" data-minutes="12" data-seconds="56">
+        <div data-type="days" class="flex flex-col items-center">
           <span class="text-[8px] md:text-[10px] leading-none">Days</span>
           <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
         </div>
@@ -117,7 +117,7 @@
           <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
           <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
         </p>
-        <div id="hours" class="flex flex-col items-center">
+        <div data-type="hours" class="flex flex-col items-center">
           <span class="text-[8px] md:text-[10px] leading-none">Hours</span>
           <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
         </div>
@@ -125,7 +125,7 @@
           <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
           <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
         </p>
-        <div id="minutes" class="flex flex-col items-center">
+        <div data-type="minutes" class="flex flex-col items-center">
           <span class="text-[8px] md:text-[10px] leading-none">Minutes</span>
           <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
         </div>
@@ -133,7 +133,7 @@
           <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
           <span class="aspect-square rounded-full bg-(--red) w-[3px] md:w-1 block"></span>
         </p>
-        <div id="seconds" class="flex flex-col items-center">
+        <div data-type="seconds" class="flex flex-col items-center">
           <span class="text-[8px] md:text-[10px] leading-none">Seconds</span>
           <p class="font-semibold text-lg md:text-xl -mt-0.5 md:mt-0"></p>
         </div>
@@ -145,7 +145,7 @@
   </section>
 
   <!-- Categories -->
-  <section class="container px-5 md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
     <div class="flex items-center gap-2 md:gap-4 md:mb-5">
       <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
       <p class="text-(--red) font-semibold text-[12px] md:text-sm">Categories</p>
@@ -181,6 +181,88 @@
     </div>
   </section>
 
+  <!-- Best Selling -->
+  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10">
+    <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+      <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+      <p class="text-(--red) font-semibold text-[12px] md:text-sm">This Month</p>
+    </div>
+    <div class="my-4 md:my-5 flex items-center justify-between">
+      <h2 class="font-semibold text-lg md:text-2xl">Best Selling Products</h2>
+      <a href="./all-products.htm" class="bg-(--red) block text-center rounded-sm text-white font-light md:hover:opacity-60 
+      w-22 md:w-36 text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300">View All</a>
+    </div>
+    <div id="best-selling" class="grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4"></div>
+  </section>
+
+  <!-- Poster -->
+  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10">
+    <div class="
+    bg-black flex flex-col items-center py-8 text-center gap-10
+    sm:text-start sm:flex-row sm:py-8 sm:px-8 md:p-10 lg:p-12 lg:px-14
+    ">
+      <div class="max-w-[80%] sm:max-w-[50%]">
+        <p class="text-(--green) text-[12px] font-semibold md:text-sm">Categories</p>
+        <h3 class="text-white font-semibold text-[20px] md:text-3xl leading-tight my-3 md:my-4">Enhance Your Music Experience</h3>
+        <div class="counter flex items-center justify-center sm:justify-start gap-3 md:gap-4 mb-4 md:mb-5" data-days="2" data-hours="12" data-minutes="33" data-seconds="30">
+          <div data-type="days" class="w-12 md:w-14 flex flex-col justify-center items-center aspect-square bg-white text-center rounded-full">
+            <span class="text-[7px] md:text-[9px] leading-none md:mt-1">Days</span>
+            <p class="font-semibold text-base md:text-[17px] -mt-1 md:-mt-0.5"></p>
+          </div>
+          <div data-type="hours" class="w-12 md:w-14 flex flex-col justify-center items-center aspect-square bg-white text-center rounded-full">
+            <span class="text-[7px] md:text-[9px] leading-none md:mt-1">Hours</span>
+            <p class="font-semibold text-base md:text-[17px] -mt-1 md:-mt-0.5"></p>
+          </div>
+          <div data-type="minutes" class="w-12 md:w-14 flex flex-col justify-center items-center aspect-square bg-white text-center rounded-full">
+            <span class="text-[7px] md:text-[9px] leading-none md:mt-1">Minutes</span>
+            <p class="font-semibold text-base md:text-[17px] -mt-1 md:-mt-0.5"></p>
+          </div>
+          <div data-type="seconds" class="w-12 md:w-14 flex flex-col justify-center items-center aspect-square bg-white text-center rounded-full">
+            <span class="text-[7px] md:text-[9px] leading-none md:mt-1">Seconds</span>
+            <p class="font-semibold text-base md:text-[17px] -mt-1 md:-mt-0.5"></p>
+          </div>
+        </div>
+        <a href="./all-products.htm" class="bg-(--green) mx-auto block text-center rounded-sm text-white font-light md:hover:opacity-60 
+        w-26 md:w-36 text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300 sm:m-0">Buy Now!</a>
+      </div>
+      <div class="w-[74%] relative lg:w-[60%]">
+        <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_100px_20px_#D9D9D9] lg:shadow-[0_0_160px_80px_#D9D9D9] block w-44 lg:w-52 opacity-30 blur-[10px] aspect-[7/6] rounded-full bg-[#D9D9D9]"></span>
+        <img src="./assets/images/sub.png" alt="" class="w-full relative z-10">
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Products -->
+  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10 border-b border-gray-300">
+    <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+      <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+      <p class="text-(--red) font-semibold text-[12px] md:text-sm">Our Products</p>
+    </div>
+    <div class="my-4 mb-6 md:my-5 md:mb-10 flex items-center justify-between">
+      <h2 class="font-semibold text-lg md:text-2xl">Explore Our Products</h2>
+    </div>
+    <div id="our-products" class="grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4"></div>
+    <a href="./all-products.htm" class="bg-(--red) block text-center rounded-sm text-white font-light mt-5 md:mt-10 md:hover:opacity-60 
+    w-32 md:w-44 mx-auto text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300">View All Products</a>
+  </section>
+
+  <!-- Arrivals -->
+  <section class="container md:p-0 mt-8 md:12 mb-10 pb-5 md:pb-10">
+    <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+      <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+      <p class="text-(--red) font-semibold text-[12px] md:text-sm">Featured</p>
+    </div>
+    <div class="my-4 mb-6 md:my-5 md:mb-10 flex items-center justify-between">
+      <h2 class="font-semibold text-lg md:text-2xl">New Arrivals</h2>
+    </div>
+    <div class="grid gap-4">
+      <div class="bg-black text-white p-6 md:p-8 flex flex-col items-start justify-end relative h-[300px]">
+        <p class="font-semibold text-sm md:text-base">PlayStation 5</p>
+        <p class="my-3 md:my-4 text-[12px] md:text-sm max-w-[90%]">Black and White version of the PS5 coming out on sale.</p>
+        <a href="./all-products.htm" class="text-[12px] md:text-sm pb-0.5 border-white border-b-2">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
   <script type="module" src="./js/main.js"></script>
   <script type="module" src="./js/homepage.js"></script>

@@ -1,0 +1,34 @@
+[
+  {
+    "img": "./assets/images/image5.png",
+    "title": "The north coat",
+    "data": "coat",
+    "price": "$90",
+    "oldPrice": "$120",
+    "reviews": 97
+  },
+  {
+    "img": "./assets/images/image6.png",
+    "title": "Gucci duffle bag",
+    "data": "bag",
+    "price": "$90",
+    "oldPrice": "$130",
+    "reviews": 35
+  },
+  {
+    "img": "./assets/images/image7.png",
+    "title": "RGB liquid CPU Cooler",
+    "data": "cooler",
+    "price": "$70",
+    "oldPrice": "",
+    "reviews": 45
+  },
+  {
+    "img": "./assets/images/image8.png",
+    "title": "Small BookShelf",
+    "data": "bookshelf",
+    "price": "$85",
+    "oldPrice": "",
+    "reviews": 100
+  }
+]

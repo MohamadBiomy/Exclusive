@@ -1,14 +1,20 @@
-import { createProduct, toggleClass } from "./main.js"
+import { createProduct, toggleClass, updateFavPage } from "./main.js"
 
+// Variables
 const flashSalesContainer = document.getElementById("flash-sales")
+const bestSellingContainer = document.getElementById("best-selling")
+const ourProductsContainer = document.getElementById("our-products")
+let favIconPage, cartIconPage;
 
 
 // Initialize components first
 async function initializeApp() {
-  
+
   // Wait for all components to load
   await Promise.all([
-    flashSalesAppend()
+    flashSalesAppend(),
+    bestSellingAppend(),
+    ourProductsAppend()
   ])
   
   // Now initialize DOM elements after components are loaded
@@ -23,12 +29,30 @@ async function flashSalesAppend() {
     flashSalesContainer.append(productElement)
   })
 }
+async function bestSellingAppend() {
+  const res = await fetch(`data/best-selling.json`)
+  const data = await res.json()
+  data.forEach(product => {
+    const productElement = createProduct(product)
+    bestSellingContainer.append(productElement)
+  })
+}
+async function ourProductsAppend() {
+  const res = await fetch(`data/our-products.json`)
+  const data = await res.json()
+  data.forEach(product => {
+    const productElement = createProduct(product)
+    ourProductsContainer.append(productElement)
+  })
+}
 
 // Initialize event listeners after components are ready
 function initializeEventListeners() {
   // Add to favorite and View Icons
   const favIcons = document.querySelectorAll(".fav")
   const viewIcons = document.querySelectorAll(".view")
+  favIconPage = document.getElementById("fav-page")
+  cartIconPage = document.getElementById("cart-page")
 
   if (favIcons || viewIcons) {
     favIcons.forEach(icon => {
@@ -44,6 +68,7 @@ function initializeEventListeners() {
           let temp = [product]
           localStorage.setItem("favorites", JSON.stringify(temp))
         }
+        updateFavPage()
       })
     })
     viewIcons.forEach(icon => {
@@ -235,48 +260,46 @@ if (track) {
 }
 
 // CountDown Timer - Flash Sales
-const counter = document.getElementById("counter")
-if (counter) {
-  let days = 3;
-  let hours = 23;
-  let minutes = 12;
-  let seconds = 56;
-
-  const daysElement = counter.querySelector("#days p")
-  daysElement.innerHTML = days.toString().length < 2 ? `0${days}` : days
-  const hoursElement = counter.querySelector("#hours p")
-  hoursElement.innerHTML = hours.toString().length < 2 ? `0${hours}` : hours
-  const minutesElement = counter.querySelector("#minutes p")
-  minutesElement.innerHTML = minutes.toString().length < 2 ? `0${minutes}` : minutes
-  const secondsElement = counter.querySelector("#seconds p")
-  secondsElement.innerHTML = seconds.toString().length < 2 ? `0${seconds}` : seconds
-
-  let timer = setInterval(() => {
-    let value = (--secondsElement.innerHTML).toString()
-    console.log()
-    secondsElement.innerHTML = value.length < 2 ? `0${value}` : value
-    if (+secondsElement.innerHTML === 0) {
-      secondsElement.innerHTML = 59
-      minutesElement.innerHTML--
-      minutesElement.innerHTML = minutesElement.innerHTML.toString().length < 2 ? `0${minutesElement.innerHTML}` : minutesElement.innerHTML
-      if (+minutesElement.innerHTML === 0) {
-        minutesElement.innerHTML = 59
-        hoursElement.innerHTML--
-        hoursElement.innerHTML = hoursElement.innerHTML.toString().length < 2 ? `0${hoursElement.innerHTML}` : hoursElement.innerHTML
-        if (+hoursElement.innerHTML === 0) {
-          hoursElement.innerHTML = 23
-          daysElement.innerHTML--
-          daysElement.innerHTML = daysElement.innerHTML.toString().length < 2 ? `0${daysElement.innerHTML}` : daysElement.innerHTML
+const counters = document.querySelectorAll(".counter")
+if (counters) {
+  counters.forEach(counter => {
+    let days = +counter.dataset.days;
+    let hours = +counter.dataset.hours;
+    let minutes = +counter.dataset.minutes;
+    let seconds = +counter.dataset.seconds;
+  
+    const daysElement = counter.querySelector("[data-type='days'] p")
+    daysElement.innerHTML = days.toString().length < 2 ? `0${days}` : days
+    const hoursElement = counter.querySelector("[data-type='hours'] p")
+    hoursElement.innerHTML = hours.toString().length < 2 ? `0${hours}` : hours
+    const minutesElement = counter.querySelector("[data-type='minutes'] p")
+    minutesElement.innerHTML = minutes.toString().length < 2 ? `0${minutes}` : minutes
+    const secondsElement = counter.querySelector("[data-type='seconds'] p")
+    secondsElement.innerHTML = seconds.toString().length < 2 ? `0${seconds}` : seconds
+  
+    let timer = setInterval(() => {
+      let value = (--secondsElement.innerHTML).toString()
+      secondsElement.innerHTML = value.length < 2 ? `0${value}` : value
+      if (+secondsElement.innerHTML === 0) {
+        secondsElement.innerHTML = 59
+        minutesElement.innerHTML--
+        minutesElement.innerHTML = minutesElement.innerHTML.toString().length < 2 ? `0${minutesElement.innerHTML}` : minutesElement.innerHTML
+        if (+minutesElement.innerHTML === 0) {
+          minutesElement.innerHTML = 59
+          hoursElement.innerHTML--
+          hoursElement.innerHTML = hoursElement.innerHTML.toString().length < 2 ? `0${hoursElement.innerHTML}` : hoursElement.innerHTML
+          if (+hoursElement.innerHTML === 0) {
+            hoursElement.innerHTML = 23
+            daysElement.innerHTML--
+            daysElement.innerHTML = daysElement.innerHTML.toString().length < 2 ? `0${daysElement.innerHTML}` : daysElement.innerHTML
+          }
         }
       }
-    }
-  }, 1000)
+    }, 1000)
+  })
 } 
 
 
 // Categories
 const categories = document.querySelectorAll("#categories > div")
-
-console.log(categories)
-
 toggleClass(categories)

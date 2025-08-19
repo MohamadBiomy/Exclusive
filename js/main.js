@@ -1,4 +1,5 @@
 // Variables
+let favIconPage, cartIconPage;
 
 // Initialize components first
 async function initializeApp() {
@@ -16,12 +17,15 @@ async function initializeApp() {
   
   // Now initialize DOM elements after components are loaded
   initializeEventListeners()
+  updateFavPage()
 }
 
 // Initialize event listeners after components are ready
 function initializeEventListeners() {
   const menu = document.getElementById("menu")
   const burgerIcon = document.getElementById("menu").previousElementSibling
+  favIconPage = document.getElementById("fav-page")
+  cartIconPage = document.getElementById("cart-page")
 
   // mobile menu
   burgerIcon.addEventListener("click", () => {
@@ -73,8 +77,8 @@ function createProduct(prodObj) {
       <div class="fav"><img src="./assets/icons/heart.svg" alt=""></div>
       <div class="view"><img src="./assets/icons/eye.svg" alt=""></div>
     </div>
-    <p class="text-[12px] md:text-[16px] uppercase my-2 md:my-2.5">${prodObj.title}</p>
-    <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="text-(--red)" >${prodObj.price}</span> <span class="text-gray-600 line-through">${prodObj.oldPrice}</span></p>
+    <p class="text-[12px] md:text-[16px] uppercase font-[500] my-2 md:mt-3">${prodObj.title}</p>
+    <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="mr-1 text-(--red)" >${prodObj.price}</span> <span class="text-gray-400 line-through">${prodObj.oldPrice}</span></p>
     <div class="flex items-center gap-2">
       <p class="flex items-center gap-0.5 md:gap-1">
         <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
@@ -83,7 +87,7 @@ function createProduct(prodObj) {
         <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
         <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="">
       </p>
-      <span class="text-[8px] md:text-[10px] text-gray-600">(${prodObj.reviews})</span>
+      <span class="text-[8px] md:text-[10px] text-gray-400">(${prodObj.reviews})</span>
     </div>
   </div>`
   const wrapper = document.createElement('div')
@@ -101,4 +105,15 @@ function toggleClass(elements, className = "active") {
   });
 }
 
-export { createProduct, toggleClass }
+function updateFavPage() {
+  let favItems = JSON.parse(localStorage.getItem("favorites")) || []
+
+  // update data items
+  favIconPage.dataset.items = favItems.length
+
+  // update items number
+  favIconPage.nextElementSibling.children[0].innerHTML = favItems.length
+
+}
+
+export { createProduct, toggleClass, updateFavPage }
