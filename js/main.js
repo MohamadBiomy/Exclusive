@@ -125,6 +125,10 @@ function createProduct(prodObj) {
       wrapper.querySelector(".fav img").src = "./assets/icons/red-heart.png"
     }
   }
+  // when clicking view icon
+  wrapper.querySelector(".view").addEventListener("click", () => {
+    console.log("go to product page")
+  })
   return wrapper.firstElementChild
 }
 

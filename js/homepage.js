@@ -50,11 +50,10 @@ async function ourProductsAppend() {
 function initializeEventListeners() {
   // Add to favorite and View Icons
   const favIcons = document.querySelectorAll(".fav")
-  const viewIcons = document.querySelectorAll(".view")
   favIconPage = document.getElementById("fav-page")
   cartIconPage = document.getElementById("cart-page")
 
-  if (favIcons || viewIcons) {
+  if (favIcons) {
     favIcons.forEach(icon => {
       icon.addEventListener("click", () => {
         const product = icon.parentElement.parentElement.dataset.product
@@ -75,12 +74,6 @@ function initializeEventListeners() {
           localStorage.setItem("favorites", JSON.stringify(temp))
         }
         updateFavPage()
-      })
-    })
-    viewIcons.forEach(icon => {
-      icon.addEventListener("click", () => {
-        const product = icon.parentElement.parentElement.dataset.product
-        // go to product page
       })
     })
   }

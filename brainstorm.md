@@ -2,11 +2,7 @@
 <!-- - to top button -->
 - scroll bar
 - over flowed text
-- home page
-- sign up page
-- log in page
-- about page 
-- contact page
+- update cart icon when clicking move all to cart
 - favorites page
 - account page
 - individual product page

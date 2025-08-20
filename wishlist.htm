@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="CSS/all.min.css">
+  <link rel="stylesheet" href="CSS/main.css">
+  <title>Exclusive - Contact</title>
+</head>
+<body class="min-h-screen bg-black">
+
+  <!-- some sections will be added by JS as components -->
+  <!-- see the components in components folder -->
+  <div id="message"></div>
+  <header id="header"></header>
+
+  <main class="bg-white py-24">
+    <div class="container flex justify-between items-center mb-10 md:mb-12 flex-wrap">
+      <p class="md:text-[26px]">Wishlist (<span id="favs-num"></span>)</p>
+      <div class="flex items-center gap-2">
+        <button id="remove-all" class="font-[500] px-2 md:px-5 bg-(--red) block text-center rounded-sm text-white cursor-pointer 
+        text-[10px] md:text-sm py-2 md:py-3">Remove All</button>
+        <button id="move-all" class="font-[500] px-2 md:px-5 bg-white block text-center rounded-sm border border-gray-500 cursor-pointer 
+        text-[10px] md:text-sm py-2 md:py-3">Move All To Cart</button>
+      </div>
+    </div>
+    <div class="container grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4" id="products">
+      <p id="no-products" class="text-neutral-600 text-xl">There is no favorite products</p>
+    </div>
+
+    
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+  </footer>
+
+
+
+  <!-- move to top arrow -->
+  <div id="move-to-top" class="
+  fixed bottom-4 right-4 md:bottom-7 md:right-7 lg:bottom-10 lg:right-10 z-20 bg-[#F5F5F5]
+  aspect-square rounded-full text-black flex items-center justify-center w-8 md:w-10 lg:w-12
+  md:text-[18px] lg:text-[20px] shadow md:hover:scale-110 md:hover:bg-white transition-all duration-300 cursor-pointer
+  ">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/wishlist.js"></script>
+</body>
+</html>
