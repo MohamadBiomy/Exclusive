@@ -22,7 +22,10 @@ body {
     max-width: 1280px;
   }
 }
-
+textarea {
+  resize: none;
+  field-sizing: content;
+}
 .carousel-track {
   will-change: transform;
 }
@@ -89,3 +92,4 @@ body {
     transform: translateY(0);
   }
 }
+
