@@ -14,6 +14,17 @@ async function initializeApp() {
     appendComponent(header),
     appendComponent(footer)
   ])
+
+  // Put class active on navigation links
+  header.querySelectorAll("li a").forEach(a => {
+    if (document.body.dataset.page === a.dataset.page) {
+      a.classList.add("active")
+    } else if (document.body.dataset.page === "login" && a.dataset.page === "signup") {
+      a.classList.add("active")
+      a.href = "./login.htm"
+      a.innerHTML = "LogIn"
+    }
+  })
   
   // Now initialize DOM elements after components are loaded
   initializeEventListeners()
