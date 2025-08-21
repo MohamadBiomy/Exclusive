@@ -1,6 +1,6 @@
 # pages
 <!-- - to top button -->
-- over flowed text
+- over flowed text [for the titles in the cart]
 - cart page
 - check out page
 

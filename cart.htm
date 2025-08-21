@@ -12,7 +12,7 @@
   <!-- CSS Files -->
   <link rel="stylesheet" href="CSS/all.min.css">
   <link rel="stylesheet" href="CSS/main.css">
-  <title>Exclusive - Check Out</title>
+  <title>Exclusive - Cart</title>
 </head>
 <body class="min-h-screen bg-black">
 
@@ -21,9 +21,17 @@
   <div id="message"></div>
   <header id="header"></header>
 
-  <main class="py-24 bg-white">
-
+  <main class="py-28 bg-white">
+    <div class="container grid grid-cols-4 gap-2">
+      <p class="text-[12px] md:text-base">Product</p>
+      <p class="text-[12px] md:text-base">Price</p>
+      <p class="text-[12px] md:text-base">Quantity</p>
+      <p class="text-[12px] md:text-base">Subtotal</p>
+    </div>
+    <p id="no-products" class="text-neutral-600 text-xl mt-6 container">There is no products in the cart</p>
   </main>
+
+
 
   <!-- Footer -->
   <footer id="footer">
@@ -40,5 +48,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </div>
   <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/cart.js"></script>
 </body>
 </html>
