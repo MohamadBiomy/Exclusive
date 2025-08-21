@@ -1,12 +1,7 @@
 # pages
 <!-- - to top button -->
-- scroll bar
 - over flowed text
-- update cart icon when clicking move all to cart
-- favorites page
-- account page
 - individual product page
-- all products page
 - cart page
 - check out page
 

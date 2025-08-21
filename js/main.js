@@ -187,4 +187,4 @@ function updateCartIcon() {
   cartIconPage.nextElementSibling.children[0].innerHTML = cartItems.length
 }
 
-export { createProduct, toggleClass, updateFavIcon, updateCartIcon }
+export { createProduct, toggleClass, updateFavIcon, updateCartIcon } 
