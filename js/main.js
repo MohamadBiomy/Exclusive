@@ -102,7 +102,7 @@ function createProduct(prodObj) {
     <div class="relative rounded-sm bg-(--bg) flex items-center justify-center aspect-square lg:aspect-[unset] lg:h-[230px]">
       <img src="${prodObj.img}" class="w-[70%] max-h-[80%] object-contain" alt="${prodObj.title}">
       <div class="fav"><img src="./assets/icons/heart.svg" alt="Add to wishlist"></div>
-      <div class="view"><img src="./assets/icons/eye.svg" alt="View product"></div>
+      <a class="view block" href="./product.htm"><img src="./assets/icons/eye.svg" alt="View product"></a>
     </div>
     <p class="text-[12px] md:text-[16px] uppercase font-[500] my-2 md:mt-3">${prodObj.title}</p>
     <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="mr-1 text-(--red)" >${prodObj.price}</span> <span class="text-gray-400 line-through">${prodObj.oldPrice}</span></p>
@@ -128,7 +128,8 @@ function createProduct(prodObj) {
   }
   // when clicking view icon
   wrapper.querySelector(".view").addEventListener("click", () => {
-    console.log("go to product page")
+    localStorage.setItem("current", JSON.stringify(prodObj.data))
+
   })
 
   const icon = wrapper.querySelector(".fav")

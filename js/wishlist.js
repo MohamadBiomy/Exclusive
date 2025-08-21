@@ -32,7 +32,9 @@ if (favItemsNEW.length > 0) {
     });
     updateForYouProducts()
   })
-} else productsContainer.append(noProductsMessage)
+} else {
+  productsContainer.append(noProductsMessage)
+}
 
 removeAll.addEventListener("click", () => {
   localStorage.setItem("favorites", JSON.stringify([]))
@@ -73,9 +75,11 @@ moveCartAll.addEventListener("click", () => {
 
 
 function updateNum() {
-  favsNum.innerHTML = JSON.parse(localStorage.getItem("favorites")).length
-  if (JSON.parse(localStorage.getItem("favorites")).length === 0) {
-    productsContainer.append(noProductsMessage)
+  if (localStorage.getItem("favorites")) {
+    favsNum.innerHTML = JSON.parse(localStorage.getItem("favorites")).length
+    if (JSON.parse(localStorage.getItem("favorites")).length === 0) {
+      productsContainer.append(noProductsMessage)
+    }
   }
 }
 
@@ -85,7 +89,7 @@ function createFavProduct(prodObj) {
     <div class="relative rounded-sm bg-(--bg) flex items-center justify-center aspect-square lg:aspect-[unset] lg:h-[230px]">
       <img src="${prodObj.img}" class="w-[70%] max-h-[80%] object-contain" alt="${prodObj.title}">
       <div class="remove"><img src="./assets/icons/remove.png" alt="remove"></div>
-      <div class="view"><img src="./assets/icons/eye.svg" alt="View product"></div>
+      <a class="view block" href="./product.htm"><img src="./assets/icons/eye.svg" alt="View product"></a>
     </div>
     <p class="text-[12px] md:text-[16px] uppercase font-[500] my-2 md:mt-3">${prodObj.title}</p>
     <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="mr-1 text-(--red)" >${prodObj.price}</span> <span class="text-gray-400 line-through">${prodObj.oldPrice}</span></p>
@@ -95,7 +99,7 @@ function createFavProduct(prodObj) {
   wrapper.innerHTML = template.trim()
 
   wrapper.querySelector(".view").addEventListener("click", () => {
-    console.log("go to product page")
+    localStorage.setItem("current", JSON.stringify(prodObj.data))
   })
 
   wrapper.querySelector(".remove").addEventListener("click", () => {

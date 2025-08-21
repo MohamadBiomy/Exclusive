@@ -56,7 +56,7 @@
     "reviews": 45
   },
   {
-    "img": "./assets/images/image8.png",
+    "img": "./assets/images/image8.png", 
     "title": "Small BookShelf",
     "data": "bookshelf",
     "price": "$85",

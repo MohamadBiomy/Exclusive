@@ -22,6 +22,76 @@
   <header id="header"></header>
 
   <main class="bg-white py-24">
+    <div class="container mb-14 md:mb-20 flex flex-col md:flex-row gap-8 md:gap-16">
+      <div class="w-full max-[640px]:py-16 md:max-w-[540px] md:min-w-[46%] bg-[#f5f5f5] flex items-center justify-center">
+        <img alt="product" id="image" class="w-[80%] md:w-[88%] md:max-h-[70%] object-contain">
+      </div>
+      <div class="flex-1 max-w-[360px]">
+        <h2 class="font-semibold text-[20px] md:text-[24px]" id="title"></h2>
+        <div class="flex items-center my-2 md:my-4">
+          <p class="flex items-center gap-0.5 md:gap-1 mr-2">
+            <img src="./assets/icons/star.svg" class="w-3 md:w-4" alt="Rating star">
+            <img src="./assets/icons/star.svg" class="w-3 md:w-4" alt="Rating star">
+            <img src="./assets/icons/star.svg" class="w-3 md:w-4" alt="Rating star">
+            <img src="./assets/icons/star.svg" class="w-3 md:w-4" alt="Rating star">
+            <img src="./assets/icons/star.svg" class="w-3 md:w-4" alt="Rating star">
+          </p>
+          <span class="text-[11px] md:text-[13px] text-gray-400">(<span id="reviews"></span> Reviews)</span>
+          <p class="text-[11px] md:text-[13px] text-(--green) pl-4 ml-4 border-l border-gray-400">In Stock</p>
+        </div>
+        <p class="font-[Inter] text-[18px] md:text-20px pb-4 md:pb-6 border-b border-gray-400 mb-4 md:mb-6"><span id="price"></span>.00</p>
+        <div class="flex items-center mb-4 md:mb-6 gap-6">
+          <p class="font-[Inter] font-light md:text-[18px]">Size:</p>
+          <div id="size" class="flex items-center gap-3 md:gap-4">
+            <p class="aspect-square hover:bg-(--red) hover:text-white rounded border border-gray-400 w-8 cursor-pointer transition-all duration-300 
+            [.active]:bg-(--red) [.active]:text-white [.active]:border-(--red) flex items-center justify-center font-[500] text-sm">XS</p>
+            <p class=" aspect-square hover:bg-(--red) hover:text-white rounded border border-gray-400 w-8 cursor-pointer transition-all duration-300 
+            [.active]:bg-(--red) [.active]:text-white [.active]:border-(--red) flex items-center justify-center font-[500] text-sm">S</p>
+            <p class="active aspect-square hover:bg-(--red) hover:text-white rounded border border-gray-400 w-8 cursor-pointer transition-all duration-300 
+            [.active]:bg-(--red) [.active]:text-white [.active]:border-(--red) flex items-center justify-center font-[500] text-sm">M</p>
+            <p class="aspect-square hover:bg-(--red) hover:text-white rounded border border-gray-400 w-8 cursor-pointer transition-all duration-300 
+            [.active]:bg-(--red) [.active]:text-white [.active]:border-(--red) flex items-center justify-center font-[500] text-sm">L</p>
+            <p class="aspect-square hover:bg-(--red) hover:text-white rounded border border-gray-400 w-8 cursor-pointer transition-all duration-300 
+            [.active]:bg-(--red) [.active]:text-white [.active]:border-(--red) flex items-center justify-center font-[500] text-sm">XL</p>
+          </div>
+        </div>
+        <div class="flex gap-2 md:gap-3.5">
+          <div class="flex rounded border border-gray-300 overflow-hidden flex-1">
+            <p class="transition-all duration-300 hover:bg-(--red) group flex items-center justify-center aspect-square border-r border-gray-300 cursor-pointer"><img src="./assets/icons/minus.png" class="w-5 group-hover:invert" alt="minus"></p>
+            <p class="font-[500] justify-center flex-1 flex items-center"><span id="count">1</span></p>
+            <p class="transition-all duration-300 hover:bg-(--red) group flex items-center justify-center aspect-square border-l border-gray-300 cursor-pointer"><img src="./assets/icons/plus.png" class="w-5 group-hover:invert-0 invert" alt="plus"></p>
+          </div>
+          <button id="add-to-cart" class="cursor-pointer bg-(--red) block text-center rounded-sm text-white font-[500] md:hover:opacity-60 
+          w-22 md:w-36 text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300 flex-1">Add To Cart</button>
+          <p class="aspect-square w-11 border border-gray-400 rounded flex items-center justify-center cursor-pointer"><img id="fav-icon" src="./assets/icons/heart.svg" class="w-6" alt="love"></p>
+        </div>
+        <div class="rounded border border-gray-400 my-4 md:my-6">
+          <div class="py-5 px-4 md:py-7 md:px-6 border-b border-gray-400 flex items-center gap-4">
+            <img src="./assets/icons/delivery.png" alt="delivery" class="invert brightness-100 w-9">
+            <div>
+              <p class="font-[500] text-sm mb-1.5">Free Delivery</p>
+              <p class="text-[12px] underline">Enter your postal code for Delivery Availability</p>
+            </div>
+          </div>
+          <div class="py-5 px-4 md:py-7 md:px- flex items-center gap-4">
+            <img src="./assets/icons/repeat.png" alt="repeat" class="w-9">
+            <div>
+              <p class="font-[500] text-sm mb-1.5">Return Delivery</p>
+              <p class="text-[12px]">Free 30 Days Delivery Returns. <span class="underline">Details</span></p>
+            </div>
+          </div>
+        </div>
+        <a href="./checkout.htm" class="cursor-pointer bg-(--red) block text-center rounded-sm text-white font-[500] md:hover:opacity-60 
+        w-full text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300 flex-1">Check Out</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+        <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+        <p class="text-(--red) font-semibold text-[12px] md:text-sm">For You</p>
+      </div>
+      <div id="more-products" class="grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4"></div>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -39,6 +109,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </div>
   <script type="module" src="./js/main.js"></script>
-  <script type="module" src="./js/wishlist.js"></script>
+  <script type="module" src="./js/product.js"></script>
 </body>
 </html>

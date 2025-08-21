@@ -1,7 +1,6 @@
 # pages
 <!-- - to top button -->
 - over flowed text
-- individual product page
 - cart page
 - check out page
 
