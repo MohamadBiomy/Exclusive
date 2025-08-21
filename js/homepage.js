@@ -1,86 +1,22 @@
-import { createProduct, toggleClass, updateFavPage } from "./main.js"
+import { createProduct, toggleClass } from "./main.js"
 
-// Variables
 const flashSalesContainer = document.getElementById("flash-sales")
 const bestSellingContainer = document.getElementById("best-selling")
 const ourProductsContainer = document.getElementById("our-products")
-let favIconPage, cartIconPage;
 
+fetchProducts("flash-sales", flashSalesContainer)
+fetchProducts("best-selling", bestSellingContainer)
+fetchProducts("our-products", ourProductsContainer)
 
-// Initialize components first
-async function initializeApp() {
-
-  // Wait for all components to load
-  await Promise.all([
-    flashSalesAppend(),
-    bestSellingAppend(),
-    ourProductsAppend()
-  ])
-  
-  // Now initialize DOM elements after components are loaded
-  initializeEventListeners()
-}
-
-async function flashSalesAppend() {
-  const res = await fetch(`data/flash-sales.json`)
+async function fetchProducts(fileName, container) {
+  const res = await fetch(`data/${fileName}.json`)
   const data = await res.json()
   data.forEach(product => {
     const productElement = createProduct(product)
-    flashSalesContainer.append(productElement)
-  })
-}
-async function bestSellingAppend() {
-  const res = await fetch(`data/best-selling.json`)
-  const data = await res.json()
-  data.forEach(product => {
-    const productElement = createProduct(product)
-    bestSellingContainer.append(productElement)
-  })
-}
-async function ourProductsAppend() {
-  const res = await fetch(`data/our-products.json`)
-  const data = await res.json()
-  data.forEach(product => {
-    const productElement = createProduct(product)
-    ourProductsContainer.append(productElement)
+    container.append(productElement)
   })
 }
 
-// Initialize event listeners after components are ready
-function initializeEventListeners() {
-  // Add to favorite and View Icons
-  const favIcons = document.querySelectorAll(".fav")
-  favIconPage = document.getElementById("fav-page")
-  cartIconPage = document.getElementById("cart-page")
-
-  if (favIcons) {
-    favIcons.forEach(icon => {
-      icon.addEventListener("click", () => {
-        const product = icon.parentElement.parentElement.dataset.product
-        if (localStorage.getItem("favorites")) {
-          let favs = JSON.parse(localStorage.getItem("favorites"))
-          if (!favs.includes(product)) {
-            favs.push(product)
-            localStorage.setItem("favorites", JSON.stringify(favs))
-            icon.querySelector("img").src = "./assets/icons/red-heart.png"
-          } else {
-            icon.querySelector("img").src = "./assets/icons/heart.svg"
-            favs.splice(favs.indexOf(product), 1)
-            localStorage.setItem("favorites", JSON.stringify(favs))
-          }
-        } else {
-          let temp = [product]
-          icon.querySelector("img").src = "./assets/icons/red-heart.png"
-          localStorage.setItem("favorites", JSON.stringify(temp))
-        }
-        updateFavPage()
-      })
-    })
-  }
-}
-
-// Start the application
-initializeApp()
 
 // Carousal
 const track = document.querySelector('.carousel-track');

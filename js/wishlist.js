@@ -1,4 +1,4 @@
-import { updateFavPage as updateIcon } from "./main.js"
+import { updateFavIcon as updateIcon, updateCartIcon, createProduct } from "./main.js"
 
 
 const favsNum = document.getElementById("favs-num")
@@ -6,7 +6,9 @@ const productsContainer = document.getElementById("products")
 const noProductsMessage = document.getElementById("no-products")
 const removeAll = document.getElementById("remove-all")
 const moveCartAll = document.getElementById("move-all")
+const moreProducts = document.getElementById("more-products")
 let favItemsNEW = []
+let forYouProducts = []
 
 updateNum()
 
@@ -24,8 +26,11 @@ if (favItemsNEW.length > 0) {
       if (favItemsNEW.includes(product.data)) {
         const eleProduct = createFavProduct(product)
         productsContainer.append(eleProduct)
+      } else {
+        forYouProducts.push(product)
       }
     });
+    updateForYouProducts()
   })
 } else productsContainer.append(noProductsMessage)
 
@@ -43,7 +48,6 @@ removeAll.addEventListener("click", () => {
   })
   updateNum()
   updateIcon()
-
 })
 
 moveCartAll.addEventListener("click", () => {
@@ -62,6 +66,7 @@ moveCartAll.addEventListener("click", () => {
   } else {
     localStorage.setItem("cartItems", localStorage.getItem("favorites"))
   }
+  updateCartIcon()
 })
 
 
@@ -112,4 +117,22 @@ function createFavProduct(prodObj) {
   })
 
   return wrapper.firstElementChild
+}
+
+
+function updateForYouProducts() {
+  let productsCount
+  if (forYouProducts.length >= 4) {
+    productsCount = 4
+  } else {
+    productsCount = forYouProducts.length
+  }
+  let productToAppend = new Set()
+  while (productToAppend.size < productsCount) {
+    const randomNum = Math.floor(Math.random() * forYouProducts.length)
+    productToAppend.add(forYouProducts[randomNum])
+  }
+  productToAppend.forEach(product => {
+    moreProducts.append(createProduct(product))
+  })
 }

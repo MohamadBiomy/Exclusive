@@ -28,7 +28,8 @@ async function initializeApp() {
   
   // Now initialize DOM elements after components are loaded
   initializeEventListeners()
-  updateFavPage()
+  updateFavIcon()
+  updateCartIcon()
 }
 
 // Initialize event listeners after components are ready
@@ -129,6 +130,31 @@ function createProduct(prodObj) {
   wrapper.querySelector(".view").addEventListener("click", () => {
     console.log("go to product page")
   })
+
+  const icon = wrapper.querySelector(".fav")
+
+  if (icon) {
+    icon.addEventListener("click", () => {
+      const product = prodObj.data
+      if (localStorage.getItem("favorites")) {
+        let favs = JSON.parse(localStorage.getItem("favorites"))
+        if (!favs.includes(product)) {
+          favs.push(product)
+          localStorage.setItem("favorites", JSON.stringify(favs))
+          icon.querySelector("img").src = "./assets/icons/red-heart.png"
+        } else {
+          icon.querySelector("img").src = "./assets/icons/heart.svg"
+          favs.splice(favs.indexOf(product), 1)
+          localStorage.setItem("favorites", JSON.stringify(favs))
+        }
+      } else {
+        let temp = [product]
+        icon.querySelector("img").src = "./assets/icons/red-heart.png"
+        localStorage.setItem("favorites", JSON.stringify(temp))
+      }
+      updateFavIcon()
+    })
+  }
   return wrapper.firstElementChild
 }
 
@@ -142,7 +168,7 @@ function toggleClass(elements, className = "active") {
   });
 }
 
-function updateFavPage() {
+function updateFavIcon() {
   let favItems = JSON.parse(localStorage.getItem("favorites")) || []
 
   // update data items
@@ -150,7 +176,15 @@ function updateFavPage() {
 
   // update items number
   favIconPage.nextElementSibling.children[0].innerHTML = favItems.length
+}
+function updateCartIcon() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
 
+  // update data items
+  cartIconPage.dataset.items = cartItems.length
+
+  // update items number
+  cartIconPage.nextElementSibling.children[0].innerHTML = cartItems.length
 }
 
-export { createProduct, toggleClass, updateFavPage }
+export { createProduct, toggleClass, updateFavIcon, updateCartIcon }

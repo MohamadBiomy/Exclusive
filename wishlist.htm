@@ -12,7 +12,7 @@
   <!-- CSS Files -->
   <link rel="stylesheet" href="CSS/all.min.css">
   <link rel="stylesheet" href="CSS/main.css">
-  <title>Exclusive - Contact</title>
+  <title>Exclusive - Wishlist</title>
 </head>
 <body class="min-h-screen bg-black">
 
@@ -22,7 +22,7 @@
   <header id="header"></header>
 
   <main class="bg-white py-24">
-    <div class="container flex justify-between items-center mb-10 md:mb-12 flex-wrap">
+    <div class="container flex justify-between items-center mb-9 md:mb-12 flex-wrap">
       <p class="md:text-[26px]">Wishlist (<span id="favs-num"></span>)</p>
       <div class="flex items-center gap-2">
         <button id="remove-all" class="font-[500] px-2 md:px-5 bg-(--red) block text-center rounded-sm text-white cursor-pointer 
@@ -31,11 +31,19 @@
         text-[10px] md:text-sm py-2 md:py-3">Move All To Cart</button>
       </div>
     </div>
-    <div class="container grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4" id="products">
+    <div class="container grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4 mb-24" id="products">
       <p id="no-products" class="text-neutral-600 text-xl">There is no favorite products</p>
     </div>
 
-    
+    <div class="container flex justify-between items-center mb-9 md:mb-12 flex-wrap">
+      <div class="flex items-center gap-2 md:gap-4 md:mb-5">
+        <span class="block aspect-[1/2] bg-(--red) w-3.5 md:w-5 rounded-sm"></span>
+        <p class="text-(--red) font-semibold text-[12px] md:text-sm">Just For You</p>
+      </div>
+      <a href="./all-products.htm" class="font-[500] px-2 md:px-5 bg-white block text-center rounded-sm border border-gray-500 cursor-pointer 
+      text-[10px] md:text-sm py-2 md:py-3">See All</a>
+    </div>
+    <div class="container grid gap-2 gap-y-4 md:gap-4 grid-cols-[repeat(auto-fill,_minmax(120px,1fr))] sm:grid-cols-4" id="more-products"></div>
   </main>
 
   <!-- Footer -->
