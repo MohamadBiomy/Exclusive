@@ -2,7 +2,7 @@ import { updateCartIcon } from "./main.js"
 
 const main = document.querySelector("main")
 const noProductsMessage = document.getElementById("no-products")
-noProductsMessage.remove()
+if (noProductsMessage) noProductsMessage.remove()
 const totalPrices = document.querySelectorAll(".total-price")
 
 if (localStorage.getItem("cartItems") && JSON.parse(localStorage.getItem("cartItems")).length > 0) {
@@ -173,7 +173,7 @@ function updateTotalPrice(prodData, count) {
   updateTotalPriceSS()
 }
 
-function updateTotalPriceSS() {
+function updateTotalPriceSS(totalElements = totalPrices) {
   const eles = main.querySelectorAll("[data-product]")
   let total = 0
 
@@ -181,5 +181,6 @@ function updateTotalPriceSS() {
     total += +(ele.querySelector("#total").innerHTML.split("$").join(""))
   })
 
-  totalPrices.forEach(e => e.innerHTML = `$${total}`)
+  totalElements.forEach(e => e.innerHTML = `$${total}`)
 }
+
