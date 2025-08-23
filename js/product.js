@@ -18,7 +18,7 @@ let product;
 
 if (localStorage.getItem("current")) {
   product = JSON.parse(localStorage.getItem("current"))
-
+  console.log(product)
   fetch("data/all-products.json").then(res => res.json())
   .then(data => {
 

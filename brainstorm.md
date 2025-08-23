@@ -1,9 +1,6 @@
 # pages
 <!-- - to top button -->
 - over flowed text [for the titles in the cart]
-- check out page
-- add to cart when hover
-- go to product when clicking link
 
 ## steps
 <!-- - tailwind documentation  -->

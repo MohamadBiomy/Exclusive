@@ -98,15 +98,20 @@ async function getComponent(componentName) {
 function createProduct(prodObj) {
 
   const template = `
-  <div data-product='${prodObj.data}' >
-    <div class="relative rounded-sm bg-(--bg) flex items-center justify-center aspect-square lg:aspect-[unset] lg:h-[230px]">
-      <img src="${prodObj.img}" class="w-[70%] max-h-[80%] object-contain" alt="${prodObj.title}">
+  <div data-product='${prodObj.data}'>
+
+    <div class="relative rounded-sm bg-(--bg) flex items-center cursor-pointer justify-center aspect-square lg:aspect-[unset] lg:h-[230px] overflow-hidden group">
+      <img src="${prodObj.img}" class="w-[70%] go-to-this-prod max-h-[80%] object-contain" alt="${prodObj.title}">
       <div class="fav"><img src="./assets/icons/heart.svg" alt="Add to wishlist"></div>
       <a class="view block" href="./product.htm"><img src="./assets/icons/eye.svg" alt="View product"></a>
+
+      <div id="add-to-cart-btn" class="absolute w-full left-0 top-full transition-all -translate-y-full md:-translate-y-0 duration-300 md:group-hover:-translate-y-full cursor-pointer py-3 bg-black flex items-center justify-center text-white">
+        <p class="flex items-center text-[13px] md:text-base"><img src="./assets/icons/cart.png" class="invert mr-1.5 w-4  md:mr-2.5 md:w-6"> Add To Cart</p>
+      </div>
     </div>
-    <p class="text-[12px] md:text-[16px] uppercase font-[500] my-2 md:mt-3">${prodObj.title}</p>
-    <p class="text-[12px] md:text-[16px] uppercase mb-2 md:mb-2.5 "><span class="mr-1 text-(--red)" >${prodObj.price}</span> <span class="text-gray-400 line-through">${prodObj.oldPrice}</span></p>
-    <div class="flex items-center gap-2">
+    <p id="title" class="go-to-this-prod cursor-pointer text-[12px] md:text-[16px] uppercase font-[500] my-2 md:mt-3">${prodObj.title}</p>
+    <p class="text-[12px] md:text-[16px] go-to-this-prod uppercase mb-2 md:mb-2.5 "><span class="mr-1 text-(--red)" >${prodObj.price}</span> <span class="text-gray-400 line-through">${prodObj.oldPrice}</span></p>
+    <div class="flex items-center gap-2 go-to-this-prod">
       <p class="flex items-center gap-0.5 md:gap-1">
         <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
         <img src="./assets/icons/star.svg" class="w-2 md:w-3" alt="Rating star">
@@ -129,7 +134,31 @@ function createProduct(prodObj) {
   // when clicking view icon
   wrapper.querySelector(".view").addEventListener("click", () => {
     localStorage.setItem("current", JSON.stringify(prodObj.data))
+  })
 
+  wrapper.querySelector(".go-to-this-prod").addEventListener("click", () => {
+    localStorage.setItem("current", JSON.stringify(prodObj.data))
+    location.href = "./product.htm"
+  })
+
+  wrapper.querySelector("#add-to-cart-btn").addEventListener("click", () => {
+    if (localStorage.getItem("cartItems")) {
+      let cartItems = JSON.parse(localStorage.getItem("cartItems"))
+  
+      if (!cartItems.includes(prodObj.data)) {
+        cartItems.push(prodObj.data)
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
+      }
+  
+  
+  
+    } else {
+  
+      localStorage.setItem("cartItems", JSON.stringify([prodObj.data]))
+  
+    }
+
+    updateCartIcon()
   })
 
   const icon = wrapper.querySelector(".fav")
