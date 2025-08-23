@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="CSS/all.min.css">
+  <link rel="stylesheet" href="CSS/main.css">
+  <title>404 Not Found</title>
+</head>
+<body class="min-h-screen bg-black">
+
+  <!-- some sections will be added by JS as components -->
+  <!-- see the components in components folder -->
+  <div id="message"></div>
+  <header id="header"></header>
+
+  <div class="py-24 bg-white text-center">
+    <div class="container">
+      <h1 class="text-5xl md:text-8xl font-semibold">404 - Not Found</h1>
+      <p class="text-sm md:text-base mt-7 mb-6 md:mt-9 md:mb-7">Your visited page not found. You may go home page.</p>
+      <a href="./index.htm" class="bg-(--red) block text-center rounded-sm text-white font-light mt-5 md:mt-10 md:hover:opacity-60 
+      w-32 md:w-44 mx-auto text-[10px] md:text-sm py-2 md:py-3 transition-all duration-300 font-semibold">Return To Homepage</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+  </footer>
+
+
+
+  <!-- move to top arrow -->
+  <div id="move-to-top" class="
+  fixed bottom-4 right-4 md:bottom-7 md:right-7 lg:bottom-10 lg:right-10 z-20 bg-[#F5F5F5]
+  aspect-square rounded-full text-black flex items-center justify-center w-8 md:w-10 lg:w-12
+  md:text-[18px] lg:text-[20px] shadow md:hover:scale-110 md:hover:bg-white transition-all duration-300 cursor-pointer
+  ">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/checkout.js"></script>
+</body>
+</html>
